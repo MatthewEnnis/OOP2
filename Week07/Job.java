@@ -9,7 +9,7 @@ public class Job
 	public Job(double salary, String role, int jobID)
 	{
 		this.salary = salary;
-		this.role = role;
+		setRole(role);
 		this.jobID = jobID;
 	}
 	
@@ -26,7 +26,18 @@ public class Job
 	public void setSalary(double salary) {this.salary = salary;}
 
 	public String getRole() {return role;}
-	public void setRole(String role) {this.role = role;}
+	public void setRole(String role)
+	{
+		FileProcessor filecheck = new FileProcessor("src/roles.txt","read");
+		if (filecheck.checkRole(role))
+		{
+			this.role = role;
+		}
+		else
+		{
+			System.out.println("Invalid role");
+		}
+	}
 
 	public int getJobID() {return jobID;}
 	public void setJobID(int jobID) {this.jobID = jobID;}

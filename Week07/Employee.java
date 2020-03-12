@@ -10,7 +10,7 @@ public class Employee extends Person
 	public Employee(String firstName, String surName, Date dateOfBirth, String gender, Job job, Date startDate)
 	{
 		super(firstName, surName, dateOfBirth, gender);
-		this.job = job;
+		setJob(job);
 		this.personnelNumber = nextNumber;
 		this.startDate = startDate;
 		nextNumber++;
@@ -20,6 +20,8 @@ public class Employee extends Person
 	
 	public String toString()
 	{
+		FileProcessor writer = new FileProcessor("src/output.txt","write");
+		writer.write(super.toString()+" "+getJob()+" "+getPersonnelNumber());
 		return super.toString()+" "+getJob()+" "+getPersonnelNumber();
 	}
 
