@@ -25,11 +25,16 @@ public class NaiveBayes
 	HashMap<Boolean,Integer> soreThroatGivenCovid19 = new HashMap<>();
 	HashMap<Boolean,Integer> dangerZoneGivenCovid19 = new HashMap<>();
 	
+	//Constructors
+	
 	public NaiveBayes(String filename)
 	{
 		readFile(filename);
-		findFrequency();
+		generateFrequency();
 	}
+	
+	
+	//Methods
 	
 	public boolean readFile(String filename)
 	{
@@ -48,7 +53,7 @@ public class NaiveBayes
 		return true;
 	}
 	
-	public void findFrequency()
+	public void generateFrequency()
 	{
 		for (Entry e : entries)
 		{
