@@ -9,7 +9,7 @@ public class Entry
 
 	//Constructors
 
-	public Entry(String temperature, boolean aches, boolean cough, boolean soreThroat, boolean dangerZone, boolean covid19)
+	public Entry(String temperature, boolean aches, boolean cough, boolean soreThroat, boolean dangerZone, boolean covid19) //Constructor for reading from the file takes strings, including covid19
 	{
 		setTemperature(temperature);
 		setAches(aches);
@@ -19,7 +19,7 @@ public class Entry
 		setCovid19(covid19);
 	}
 	
-	public Entry(String temperature, boolean aches, boolean cough, boolean soreThroat, boolean dangerZone)
+	public Entry(String temperature, boolean aches, boolean cough, boolean soreThroat, boolean dangerZone) //Constructor for testing entries takes booleans and a string, doesn't include covid19
 	{
 		setTemperature(temperature);
 		setAches(aches);
@@ -51,7 +51,7 @@ public class Entry
 	
 	//Temperature	
 	public String getTemperature() {return temperature;}
-	public void setTemperature(String temperature) {this.temperature = temperature;}
+	public void setTemperature(String temperature) {this.temperature = temperature.toLowerCase();}
 	
 	//Aches
 	public boolean getAches() {return aches;}
