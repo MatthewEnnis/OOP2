@@ -1,14 +1,13 @@
+/*
+Control class for OOP assignment 1 Machine learning model, using Naïve Bayes
+This class just instantiates the GUI, nothing else
+Matthew Ennis 17/4/20
+*/
+
 public class Control
 {
 	public static void main(String[] args)
 	{
-		GUI gui = new GUI();
-		
-		NaiveBayes nb = new NaiveBayes();
-		nb.readFile("C:\\Users\\matte\\Downloads\\git clones\\OOP2\\Assignment\\MLdata.csv");
-		nb.generateFrequency();
-		System.out.println("\nYou have a "+nb.predict(new Entry("cool",false,false,true,true))+"% chance of having COVID-19");
-		nb.readFile("C:\\Users\\matte\\Downloads\\git clones\\OOP2\\Assignment\\MLdata.csv");
-		System.out.println(nb.testAccuracy());
+		GUI gui = new GUI(); //Make the GUI show up
 	}
 }

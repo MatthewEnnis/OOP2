@@ -1,3 +1,10 @@
+/*
+Entry class to store the data from each row of a given file.
+Stores the 6 features: temp, aches, cough, sore throat, danger zone, and COVID-19
+Can be constructed in numerous ways, with or without the COVID-19 column
+Matthew Ennis 17/4/20
+*/
+
 public class Entry
 {
 	private String temperature;

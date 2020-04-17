@@ -1,3 +1,14 @@
+/*
+Naïve Bayes class which handles all of the machine learning.
+There are a series of hashmaps which store the data for each feature.
+They could probably all be stored in one, but I think having separate ones for each makes for more readable code.
+The readFile method will attempt to read in a file and return true if it was successful, false if not.
+It stores the entries from the file in an ArrayList of Entry objects.
+The generateFrequency method will look through each of these entries and increment the appropriate frequency hashmaps.
+The predict method will then use this to calculate the odds.
+Matthew Ennis 17/4/20
+*/
+
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -5,36 +16,36 @@ import java.util.HashMap;
 
 public class NaiveBayes
 {
-	File file;
-	Scanner scanner;
-	ArrayList<Entry> entries;
-	double positiveResult;
-	double negativeResult;
-	float total;
-	int entryCount = 0;
-	int correctCount;
+	private File file;
+	private Scanner scanner;
+	private ArrayList<Entry> entries;
+	private double positiveResult;
+	private double negativeResult;
+	private float total;
+	private int entryCount = 0;
+	private int correctCount;
 	
 	//Hashmaps for each column to store the frequency of each result depending on covid19 being positive or negative	
-	HashMap<Boolean,Integer> covid19 = new HashMap<>();	
+	private HashMap<Boolean,Integer> covid19 = new HashMap<>();	
 	
-	HashMap<String,Integer> temperaturePositive = new HashMap<>();
-	HashMap<Boolean,Integer> achesPositive = new HashMap<>();
-	HashMap<Boolean,Integer> coughPositive = new HashMap<>();
-	HashMap<Boolean,Integer> soreThroatPositive = new HashMap<>();
-	HashMap<Boolean,Integer> dangerZonePositive = new HashMap<>();
+	private HashMap<String,Integer> temperaturePositive = new HashMap<>();
+	private HashMap<Boolean,Integer> achesPositive = new HashMap<>();
+	private HashMap<Boolean,Integer> coughPositive = new HashMap<>();
+	private HashMap<Boolean,Integer> soreThroatPositive = new HashMap<>();
+	private HashMap<Boolean,Integer> dangerZonePositive = new HashMap<>();
 	
-	HashMap<String,Integer> temperatureNegative = new HashMap<>();
-	HashMap<Boolean,Integer> achesNegative = new HashMap<>();
-	HashMap<Boolean,Integer> coughNegative = new HashMap<>();
-	HashMap<Boolean,Integer> soreThroatNegative = new HashMap<>();
-	HashMap<Boolean,Integer> dangerZoneNegative = new HashMap<>();
+	private HashMap<String,Integer> temperatureNegative = new HashMap<>();
+	private HashMap<Boolean,Integer> achesNegative = new HashMap<>();
+	private HashMap<Boolean,Integer> coughNegative = new HashMap<>();
+	private HashMap<Boolean,Integer> soreThroatNegative = new HashMap<>();
+	private HashMap<Boolean,Integer> dangerZoneNegative = new HashMap<>();
 	
 	
 	//Constructors
 	
 	public NaiveBayes()
 	{
-		//Don't really need to do anything in the constructor but don't wanna leave it blank so
+		//Nothing needs to be done in the constructor, it doesn't do anything until a file is read
 	}
 	
 	
@@ -153,4 +164,31 @@ public class NaiveBayes
 			map.put(key,1);
 		}
 	}
+	
+	
+	//Getters and setters (Not sure why you would need to get or set half of these but hey)
+
+	public File getFile() {return file;}
+	public void setFile(File file) {this.file = file;}
+
+	public Scanner getScanner() {return scanner;}
+	public void setScanner(Scanner scanner) {this.scanner = scanner;}
+
+	public ArrayList<Entry> getEntries() {return entries;}
+	public void setEntries(ArrayList<Entry> entries) {this.entries = entries;}
+
+	public double getPositiveResult() {return positiveResult;}
+	public void setPositiveResult(double positiveResult) {this.positiveResult = positiveResult;}
+
+	public double getNegativeResult() {return negativeResult;}
+	public void setNegativeResult(double negativeResult) {this.negativeResult = negativeResult;}
+
+	public float getTotal() {return total;}
+	public void setTotal(float total) {this.total = total;}
+
+	public int getEntryCount() {return entryCount;}
+	public void setEntryCount(int entryCount) {this.entryCount = entryCount;}
+
+	public int getCorrectCount() {return correctCount;}
+	public void setCorrectCount(int correctCount) {this.correctCount = correctCount;}
 }
