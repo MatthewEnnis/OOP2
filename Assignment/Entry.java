@@ -16,7 +16,7 @@ public class Entry
 
 	//Constructors
 
-	public Entry(String temperature, boolean aches, boolean cough, boolean soreThroat, boolean dangerZone, boolean covid19) //Constructor for reading from the file takes strings, including covid19
+	public Entry(String temperature, boolean aches, boolean cough, boolean soreThroat, boolean dangerZone, boolean covid19) //This constructor isn't used but still seems useful to have
 	{
 		setTemperature(temperature);
 		setAches(aches);
@@ -35,7 +35,7 @@ public class Entry
 		setDangerZone(dangerZone);
 	}
 	
-	public Entry(String[] parameters)
+	public Entry(String[] parameters) //Constructor for reading from the csv files
 	{
 		setTemperature(parameters[0]);
 		setAches(parameters[1]);
